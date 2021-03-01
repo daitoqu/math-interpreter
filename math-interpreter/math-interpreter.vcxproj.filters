@@ -21,6 +21,9 @@
     <ClCompile Include="CLexer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLexer.h">
@@ -30,6 +33,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Nodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
