@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CLexer.cpp" />
+    <ClCompile Include="CParser.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLexer.h" />
+    <ClInclude Include="CParser.h" />
     <ClInclude Include="Nodes.h" />
     <ClInclude Include="SToken.h" />
   </ItemGroup>

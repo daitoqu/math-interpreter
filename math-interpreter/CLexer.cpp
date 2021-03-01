@@ -12,26 +12,26 @@ void CLexer::parseExpression()
 			size_t numEnd;
 			double numVal = std::stod(m_StrExpression, &numEnd);
 			m_StrExpression = m_StrExpression.substr(numEnd);
-			m_TknExpression.push_back(SToken(NUMBER, numVal));
+			m_TknExpression.push_back(SToken(TokenType::NUMBER, numVal));
 			continue;
 		}
 		else if (m_StrExpression[0] == '+') {
-			m_TknExpression.push_back(SToken(PLUS));
+			m_TknExpression.push_back(SToken(TokenType::PLUS));
 		}
 		else if (m_StrExpression[0] == '-') {
-			m_TknExpression.push_back(SToken(MINUS));
+			m_TknExpression.push_back(SToken(TokenType::MINUS));
 		}
 		else if (m_StrExpression[0] == '*') {
-			m_TknExpression.push_back(SToken(MUL));
+			m_TknExpression.push_back(SToken(TokenType::MUL));
 		}
 		else if (m_StrExpression[0] == '/') {
-			m_TknExpression.push_back(SToken(DIV));
+			m_TknExpression.push_back(SToken(TokenType::DIV));
 		}
 		else if (m_StrExpression[0] == '(') {
-			m_TknExpression.push_back(SToken(LPARENT));
+			m_TknExpression.push_back(SToken(TokenType::LPARENT));
 		}
 		else if (m_StrExpression[0] == ')') {
-			m_TknExpression.push_back(SToken(RPARENT));
+			m_TknExpression.push_back(SToken(TokenType::RPARENT));
 		}
 		else if (m_StrExpression[0] == ' ') {
 		}
