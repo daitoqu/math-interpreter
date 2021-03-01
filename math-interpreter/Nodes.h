@@ -19,10 +19,26 @@ public:
 
 class UnaryNode : public Node {
 protected:
-	std::shared_ptr<Node> m_Right;
+	Node* m_Right;
 public:
-	UnaryNode(std::shared_ptr<Node> right) {
+	UnaryNode(Node* right) {
 		m_Right = right;
+	}
+};
+
+class PlusNode : public UnaryNode {
+public:
+	PlusNode(Node* right) : UnaryNode(right) {};
+	double Evaluate() {
+		return m_Right->Evaluate();
+	}
+};
+
+class MinusNode : public UnaryNode {
+public:
+	MinusNode(Node* right) : UnaryNode(right) {};
+	double Evaluate() {
+		return - m_Right->Evaluate();
 	}
 };
 
