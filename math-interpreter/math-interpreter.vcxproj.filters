@@ -29,5 +29,8 @@
     <ClInclude Include="SToken.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Nodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
