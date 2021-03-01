@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "CLexer.h"
+#include "CParser.h"
 
 int main()
 {
@@ -12,6 +13,10 @@ int main()
 
     CLexer lexer(input);
     lexer.parseExpression();
+    auto tokens = lexer.getTokens();
+
+    CParser parser(tokens);
+    parser.parse();
 
     return 0;
 }
