@@ -53,4 +53,21 @@ Node* CParser::factor() {
 		m_CurrentIter++;
 		return new NumberNode(token.m_Val);
 	}
+	else if (token.m_Type == TokenType::MINUS) {
+		m_CurrentIter++;
+		return new MinusNode(this->factor());
+	}
+	else if (token.m_Type == TokenType::PLUS) {
+		m_CurrentIter++;
+		return new PlusNode(this->factor());
+	}
+	else if (token.m_Type == TokenType::LPARENT) {
+		m_CurrentIter++;
+		Node* result = this->expr();
+		if (m_CurrentIter->m_Type != TokenType::RPARENT) {
+			//Error
+		}
+		m_CurrentIter++;
+		return result;
+	}
 }
