@@ -8,10 +8,10 @@ public:
 
 class BinaryNode : public Node {
 protected:
-	std::shared_ptr<Node> m_Left;
-	std::shared_ptr<Node> m_Right;
+	Node* m_Left;
+	Node* m_Right;
 public:
-	BinaryNode(std::shared_ptr<Node> left, std::shared_ptr<Node> right) {
+	BinaryNode(Node* left, Node* right) {
 		m_Left = left;
 		m_Right = right;
 	}
@@ -38,7 +38,7 @@ public:
 
 class AddNode : public BinaryNode {
 public:
-	AddNode(std::shared_ptr<Node> left, std::shared_ptr<Node> right) : BinaryNode(left, right) {};
+	AddNode(Node* left, Node* right) : BinaryNode(left, right) {};
 	double Evaluate() {
 		return m_Left->Evaluate() + m_Right->Evaluate();
 	}
@@ -46,7 +46,7 @@ public:
 
 class SubtractNode : public BinaryNode {
 public:
-	SubtractNode(std::shared_ptr<Node> left, std::shared_ptr<Node> right) : BinaryNode(left, right) {};
+	SubtractNode(Node* left, Node* right) : BinaryNode(left, right) {};
 	double Evaluate() {
 		return m_Left->Evaluate() - m_Right->Evaluate();
 	}
@@ -54,7 +54,7 @@ public:
 
 class DivideNode : public BinaryNode {
 public:
-	DivideNode(std::shared_ptr<Node> left, std::shared_ptr<Node> right) : BinaryNode(left, right) {};
+	DivideNode(Node* left, Node* right) : BinaryNode(left, right) {};
 	double Evaluate() {
 		return m_Left->Evaluate() / m_Right->Evaluate();
 	}
@@ -62,7 +62,7 @@ public:
 
 class MutiplyNode : public BinaryNode {
 public:
-	MutiplyNode(std::shared_ptr<Node> left, std::shared_ptr<Node> right) : BinaryNode(left, right) {};
+	MutiplyNode(Node* left, Node* right) : BinaryNode(left, right) {};
 	double Evaluate() {
 		return m_Left->Evaluate() * m_Right->Evaluate();
 	}
