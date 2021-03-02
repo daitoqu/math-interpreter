@@ -71,3 +71,8 @@ Node* CParser::factor() {
 		return result;
 	}
 }
+
+Node* CParser::getTree()
+{
+	return m_ExecTree;
+}

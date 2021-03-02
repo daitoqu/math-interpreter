@@ -18,5 +18,7 @@ int main()
     CParser parser(tokens);
     parser.parse();
 
+    double a = parser.getTree()->Evaluate();
+
     return 0;
 }

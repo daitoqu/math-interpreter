@@ -15,4 +15,5 @@ public:
 	Node* expr();
 	Node* term();
 	Node* factor();
+	Node* getTree();
 };
