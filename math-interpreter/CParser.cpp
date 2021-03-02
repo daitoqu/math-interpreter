@@ -5,9 +5,17 @@ CParser::CParser(std::vector<SToken>& tokens) : m_Tokens(tokens)
 	m_CurrentIter = m_Tokens.begin();
 }
 
-void CParser::parse()
+CParser::~CParser()
+{
+	delete m_ExecTree;
+}
+
+void CParser::parseTokens()
 {
 	m_ExecTree = this->expr();
+
+	if (m_CurrentIter != m_Tokens.end())
+		throw "Parser error: Invalid syntax";
 }
 
 Node* CParser::expr()
@@ -65,14 +73,20 @@ Node* CParser::factor() {
 		m_CurrentIter++;
 		Node* result = this->expr();
 		if (m_CurrentIter->m_Type != TokenType::RPARENT) {
-			//Error
+			throw "Parser error: Invalid syntax";
 		}
 		m_CurrentIter++;
 		return result;
 	}
+	else {
+		throw "Parser error: Invalid syntax";
+	}
 }
 
-Node* CParser::getTree()
+double CParser::evaluateTree()
 {
-	return m_ExecTree;
+	if (m_ExecTree != nullptr)
+		return m_ExecTree->Evaluate();
+	else
+		return 0;
 }
