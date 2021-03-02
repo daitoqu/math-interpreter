@@ -36,7 +36,7 @@ void CLexer::parseExpression()
 		else if (m_StrExpression[0] == ' ') {
 		}
 		else {
-			//Unsupported sym
+			throw "Lexer error: Unsupported symbol";
 		}
 		m_StrExpression.erase(0, 1);
 	}

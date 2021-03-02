@@ -9,11 +9,13 @@ private:
 	std::vector<SToken>& m_Tokens;
 	Node* m_ExecTree;
 	std::vector<SToken>::iterator m_CurrentIter;
-public:
-	CParser(std::vector<SToken>& tokens);
-	void parse();
+
 	Node* expr();
 	Node* term();
 	Node* factor();
-	Node* getTree();
+public:
+	CParser(std::vector<SToken>& tokens);
+	~CParser();
+	void parseTokens();
+	double evaluateTree();
 };

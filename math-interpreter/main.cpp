@@ -12,13 +12,25 @@ int main()
     std::getline(std::cin, input);
 
     CLexer lexer(input);
-    lexer.parseExpression();
+    try {
+        lexer.parseExpression();
+    }
+    catch (const char* msg) {
+        std::cout << msg << std::endl;
+        return 1;
+    }
+
     auto tokens = lexer.getTokens();
-
     CParser parser(tokens);
-    parser.parse();
+    try {
+        parser.parseTokens();
+    }
+    catch (const char* msg) {
+        std::cout << msg << std::endl;
+        return 2;
+    }
 
-    double a = parser.getTree()->Evaluate();
+    std::cout << parser.evaluateTree() << std::endl;
 
     return 0;
 }

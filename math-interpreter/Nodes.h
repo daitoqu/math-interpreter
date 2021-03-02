@@ -1,9 +1,11 @@
 #pragma once
 #include <memory>
+#include <iostream>
 
 class Node {
 public:
 	virtual double Evaluate() = 0;
+	virtual ~Node() {};
 };
 
 class BinaryNode : public Node {
@@ -15,6 +17,10 @@ public:
 		m_Left = left;
 		m_Right = right;
 	}
+	~BinaryNode() {
+		delete m_Left;
+		delete m_Right;
+	}
 };
 
 class UnaryNode : public Node {
@@ -23,6 +29,9 @@ protected:
 public:
 	UnaryNode(Node* right) {
 		m_Right = right;
+	}
+	~UnaryNode() {
+		delete m_Right;
 	}
 };
 
@@ -47,6 +56,7 @@ private:
 	double m_Value;
 public:
 	NumberNode(double val) : m_Value(val) {};
+	~NumberNode() {};
 	double Evaluate() {
 		return m_Value;
 	}
